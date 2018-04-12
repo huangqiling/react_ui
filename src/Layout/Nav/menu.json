@@ -5,7 +5,7 @@
       "levelId": 1,
       "name": "会员",
       "icon": "user",
-      "url": "#",
+      "url": "#/members",
       "sort": 2,
       "platform": 2
     },
@@ -48,7 +48,7 @@
       "levelId": 1,
       "name": "首页",
       "icon": "home",
-      "url": "#",
+      "url": "#/",
       "sort": 1,
       "platform": 1
     },
@@ -56,7 +56,7 @@
       "id": "007",
       "levelId": 2,
       "name": "设置一",
-      "url": "#",
+      "url": "",
       "sort": 1,
       "platform": 4
     },
@@ -64,7 +64,7 @@
       "id": "008",
       "levelId": 3,
       "name": "设置666",
-      "url": "#",
+      "url": "",
       "sort": 1,
       "platform": 4
     },
@@ -72,7 +72,7 @@
       "id": "009",
       "levelId": 4,
       "name": "设置666dd",
-      "url": "#",
+      "url": "",
       "sort": 1,
       "platform": 4
     },

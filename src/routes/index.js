@@ -8,14 +8,14 @@ const AsyncHome = Loadable({
   loading: MyLoadingComponent
 });
 
-const AsyncList = Loadable({
-  loader: () => import('../pages/List/List'),
+const AsyncMembers = Loadable({
+  loader: () => import('../pages/Members/Members'),
   loading: MyLoadingComponent
 });
 
 const routeList = [
   { path: '/', component: AsyncHome },
-  { path: '/list', component: AsyncList }
+  { path: '/members', component: AsyncMembers }
 ];
 
 const routes = (

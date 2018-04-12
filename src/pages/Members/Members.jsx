@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-class List extends Component {
+class Members extends Component {
   render() {
     return <div>list</div>;
   }
 }
 
-export default List;
+export default Members;

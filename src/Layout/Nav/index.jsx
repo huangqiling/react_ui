@@ -15,6 +15,7 @@ export default class Nav extends Component {
     };
     this.renderMenu = this.renderMenu.bind(this);
     this.hasChildren = this.hasChildren.bind(this);
+    this.jumpUrl = this.jumpUrl.bind(this);
   }
 
   async componentWillMount() {
@@ -23,9 +24,10 @@ export default class Nav extends Component {
     const grouping = groupBy(MenuList.menus, 'levelId');
 
     for (let key in grouping) {
-      scale.push(grouping[key].sort((a, b) => a.sort - b.sort));
+      scale.unshift(grouping[key].sort((a, b) => a.sort - b.sort));
     }
-    scale.reverse().sort((a, b) => {
+    //eslint-disable-next-line
+    scale.sort((a, b) => {
       a.forEach(item => {
         b.forEach(Item => {
           if (item.platform === Item.platform) {
@@ -42,6 +44,10 @@ export default class Nav extends Component {
 
   onCollapse(collapsed) {
     this.setState({ collapsed });
+  }
+
+  jumpUrl({ key }) {
+    window.location.href = key;
   }
 
   hasChildren(children) {
@@ -74,10 +80,14 @@ export default class Nav extends Component {
   renderMenu() {
     const { scale } = this.state;
     return (
-      <Menu mode="inline" theme="dark" defaultSelectedKeys={['1']}>
+      <Menu
+        mode="inline"
+        theme="dark"
+        defaultSelectedKeys={['#/']}
+        onClick={this.jumpUrl}>
         {scale.map(item => {
           return !item.children ? (
-            <Menu.Item key={item.id}>
+            <Menu.Item key={item.url}>
               <Icon type={item.icon} />
               <span>{item.name}</span>
             </Menu.Item>
