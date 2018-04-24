@@ -1,88 +1,11 @@
 {
   "menus": [
     {
-      "id": "002",
-      "levelId": 1,
-      "name": "会员",
-      "icon": "user",
-      "url": "#/members",
-      "sort": 2,
-      "platform": 2
-    },
-    {
-      "id": "006",
-      "levelId": 2,
-      "name": "报表二",
-      "url": "#",
-      "sort": 2,
-      "platform": 3
-    },
-    {
-      "id": "003",
-      "levelId": 1,
-      "name": "报表",
-      "icon": "bar-chart",
-      "url": "#",
-      "sort": 3,
-      "platform": 3
-    },
-    {
-      "id": "004",
-      "levelId": 1,
-      "name": "设置",
-      "icon": "setting",
-      "url": "#",
-      "sort": 4,
-      "platform": 4
-    },
-    {
-      "id": "005",
-      "levelId": 2,
-      "name": "报表一",
-      "url": "#",
-      "sort": 1,
-      "platform": 3
-    },
-    {
-      "id": "001",
-      "levelId": 1,
-      "name": "首页",
-      "icon": "home",
-      "url": "#/",
-      "sort": 1,
-      "platform": 1
-    },
-    {
-      "id": "007",
-      "levelId": 2,
-      "name": "设置一",
-      "url": "",
-      "sort": 1,
-      "platform": 4
-    },
-    {
-      "id": "008",
-      "levelId": 3,
-      "name": "设置666",
-      "url": "",
-      "sort": 1,
-      "platform": 4
-    },
-    {
-      "id": "009",
-      "levelId": 4,
-      "name": "设置666dd",
-      "url": "",
-      "sort": 1,
-      "platform": 4
-    },
-    {
-      "id": "010",
-      "levelId": 5,
-      "name": "设置666ccc",
-      "url": "#",
-      "sort": 1,
-      "platform": 4
+      "id": 100,
+      "name": "订单",
+      "parentId": 0,
+      "levelId": "001",
+      "sort": 3
     }
   ]
 }

@@ -13,24 +13,24 @@ export default class Nav extends Component {
       collapsed: false,
       scale: []
     };
+    this.structureMenus = this.structureMenus.bind(this);
     this.renderMenu = this.renderMenu.bind(this);
     this.hasChildren = this.hasChildren.bind(this);
     this.jumpUrl = this.jumpUrl.bind(this);
   }
 
-  async componentWillMount() {
-    let { scale } = this.state;
+  async structureMenus() {
+    let Menus = [];
     const { groupBy } = await import(/* webpackChunkName: "lodash" */ 'lodash');
     const grouping = groupBy(MenuList.menus, 'levelId');
-
     for (let key in grouping) {
-      scale.unshift(grouping[key].sort((a, b) => a.sort - b.sort));
+      Menus.unshift(grouping[key].sort((a, b) => a.sort - b.sort));
     }
     //eslint-disable-next-line
-    scale.sort((a, b) => {
+    Menus.sort((a, b) => {
       a.forEach(item => {
         b.forEach(Item => {
-          if (item.platform === Item.platform) {
+          if (item.parentId === Item.id) {
             if (!isArray(Item.children)) {
               Item.children = [];
             }
@@ -39,7 +39,12 @@ export default class Nav extends Component {
         });
       });
     });
-    this.setState({ scale: scale[scale.length - 1] });
+    return Menus.pop();
+  }
+
+  async componentWillMount() {
+    let scale = await this.structureMenus();
+    this.setState({ scale });
   }
 
   onCollapse(collapsed) {
@@ -80,14 +85,10 @@ export default class Nav extends Component {
   renderMenu() {
     const { scale } = this.state;
     return (
-      <Menu
-        mode="inline"
-        theme="dark"
-        defaultSelectedKeys={['#/']}
-        onClick={this.jumpUrl}>
+      <Menu mode="inline" theme="dark" onClick={this.jumpUrl}>
         {scale.map(item => {
           return !item.children ? (
-            <Menu.Item key={item.url}>
+            <Menu.Item key={item.id}>
               <Icon type={item.icon} />
               <span>{item.name}</span>
             </Menu.Item>
